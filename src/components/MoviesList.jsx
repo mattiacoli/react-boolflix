@@ -5,10 +5,6 @@ export default function MoviesList() {
 
   const { searchQuery, setSearchQuery, movies, handleSubmit } = useGlobalContext()
 
-  console.log();
-
-
-
   return (
     <>
 
@@ -42,7 +38,7 @@ export default function MoviesList() {
             <li key={movie.id}>
               <h1>{movie.title}</h1>
               <p>Titolo Originale : {movie.original_title}</p>
-              <p>lingua: <ReactCountryFlag countryCode='uk' />
+              <p>lingua: <ReactCountryFlag countryCode={(movie.original_language === "en" ? 'gb' : movie.original_language)} />
               </p>
               <p>voto : {Number((movie.vote_average) / 2).toFixed()}</p>
             </li>
