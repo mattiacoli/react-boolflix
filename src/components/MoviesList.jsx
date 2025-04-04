@@ -39,7 +39,7 @@ export default function MoviesList() {
               <h1>{movie.title}</h1>
               <p>Titolo Originale : {movie.original_title}</p>
               <p>lingua: {movie.original_language}</p>
-              <p>voto : {movie.vote_average}</p>
+              <p>voto : {Number((movie.vote_average) / 2).toFixed()}</p>
             </li>
 
           ))}
