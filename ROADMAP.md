@@ -2,11 +2,11 @@
 
 
 
-**Milestone 0:**
+**Milestone 0:** [DONE]
 Progettare la struttura del global state sulla linea degli esercizi svolti nei giorni
 precedenti.
 
-*Milestone1:*
+*Milestone1:* [DONE]
 Creare un layout base con una searchbar (una input e un button) in cui possiamo
 scrivere completamente o parzialmente il nome di un film. Possiamo, cliccando il
 bottone, cercare sull’API tutti i film che contengono ciò che ha scritto l’utente.
@@ -17,7 +17,7 @@ film trovato:
 3.​ Lingua
 4.​ Voto
 
-*Milestone 2:*
+*Milestone 2:* [DONE]
 Trasformiamo la stringa statica della lingua in una vera e propria bandiera della
 nazione corrispondente, gestendo il caso in cui non abbiamo la bandiera della
 nazione ritornata dall’API (le flag non ci sono in FontAwesome).
