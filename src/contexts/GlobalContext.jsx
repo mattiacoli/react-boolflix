@@ -1,30 +1,36 @@
-import { createContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const GlobalContext = createContext()
 
 function GlobalProvider({ children }) {
 
-  const [query, setQuery] = useState()
+  const [searchQuery, setSearchQuery] = useState()
   const [movies, setMovies] = useState([])
 
-  const apiKey = '795776e0a1fb01c1e5b7968acb3d6b9c'
+  const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
+
+  const base_movies_api_url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&query=avatar`;
+
+  useEffect(() => {
+
+    fetch(base_movies_api_url)
+      .then(res => res.json())
+      .then(data => {
+
+        setMovies(data)
+        console.log(data);
+      })
+      .catch(err => {
+        console.error(err.message)
+      })
 
 
+  }, [])
 
-  fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&query=${query}`)
-    .then(res => res.json())
-    .then(data => {
-
-      setMovies(data)
-      console.log(movies);
-    })
-    .catch(err => {
-      console.error(err.message)
-    })
 
   return (
     <GlobalContext.Provider
-      value={{ query, setQuery, movies, setMovies }}>
+      value={{ searchQuery, setSearchQuery, movies, setMovies }}>
 
       {children}
 
@@ -34,5 +40,18 @@ function GlobalProvider({ children }) {
   )
 
 }
+
+
+function useGlobalContext() {
+  const context = useContext(GlobalContext)
+
+  return context
+}
+
+
+export { GlobalProvider, useGlobalContext }
+
+
+
 
 

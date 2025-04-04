@@ -1,10 +1,18 @@
-
+import { GlobalProvider } from "./contexts/GlobalContext"
+import MoviesList from "./components/MoviesList"
 
 function App() {
 
   return (
     <>
-      <h1>Hello</h1>
+      <GlobalProvider>
+
+        <MoviesList />
+
+
+
+      </GlobalProvider>
+
 
 
 
