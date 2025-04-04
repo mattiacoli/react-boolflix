@@ -1,41 +1,21 @@
 import { useGlobalContext } from "../contexts/GlobalContext"
 import ReactCountryFlag from "react-country-flag"
+import Header from "./Header"
 
 export default function MoviesList() {
 
-  const { searchQuery, setSearchQuery, movies, series, handleSubmit } = useGlobalContext()
+  const { movies, series } = useGlobalContext()
 
   return (
     <>
 
+
+      <Header />
+
+
+      {/* movie */}
+
       <div className="container my-4">
-
-        <header>
-          <div className="form-group">
-            <label htmlFor="searchbar">Search Movie</label>
-            <input
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              type="text"
-              className="form-control"
-              name="searchbar"
-              id="searchbar"
-              aria-describedby="helpId"
-              placeholder="Search here..." />
-
-
-            <button
-              type="button"
-              className="btn btn-primary mt-3"
-              onClick={handleSubmit}
-
-            >Search</button>
-          </div>
-        </header>
-
-
-        {/* movie */}
-
         <ul>
           {movies.map(movie => (
             <li key={movie.id}>
@@ -62,7 +42,7 @@ export default function MoviesList() {
           {series.map(serie => (
             <li key={serie.id}>
               <h1>{serie.name}</h1>
-              <img src={`https://image.tmdb.org/t/p/w342/${serie.poster_path}`} alt="" />
+              <img src={` https://image.tmdb.org/t/p/w342/${serie.poster_path}`} alt="" />
               <p>Titolo Originale : {serie.original_name}</p>
               <p>lingua originale: <ReactCountryFlag countryCode={(serie.original_language === "en" ? 'gb' : serie.original_language)} />
               </p>
