@@ -28,6 +28,7 @@ function GlobalProvider({ children }) {
       .catch(err => {
         console.error(err.message)
       })
+
   }
 
   return (
