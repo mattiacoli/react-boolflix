@@ -22,8 +22,8 @@ function GlobalProvider({ children }) {
       .then(res => res.json())
       .then(data => {
 
-        setMovies(data)
-        console.log(data);
+        setMovies(data.results)
+        console.log(data.results);
       })
       .catch(err => {
         console.error(err.message)

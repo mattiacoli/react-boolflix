@@ -33,6 +33,18 @@ export default function MoviesList() {
           </div>
         </header>
 
+        <ul>
+          {movies.map(movie => (
+            <li key={movie.id}>
+              <h1>{movie.title}</h1>
+              <p>Titolo Originale : {movie.original_title}</p>
+              <p>lingua: {movie.original_language}</p>
+              <p>voto : {movie.vote_average}</p>
+            </li>
+
+          ))}
+        </ul>
+
       </div>
 
 
