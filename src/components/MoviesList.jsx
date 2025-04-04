@@ -3,7 +3,7 @@ import ReactCountryFlag from "react-country-flag"
 
 export default function MoviesList() {
 
-  const { searchQuery, setSearchQuery, movies, handleSubmit } = useGlobalContext()
+  const { searchQuery, setSearchQuery, movies, series, handleSubmit } = useGlobalContext()
 
   return (
     <>
@@ -38,9 +38,24 @@ export default function MoviesList() {
             <li key={movie.id}>
               <h1>{movie.title}</h1>
               <p>Titolo Originale : {movie.original_title}</p>
-              <p>lingua: <ReactCountryFlag countryCode={(movie.original_language === "en" ? 'gb' : movie.original_language)} />
+              <p>lingua originale: <ReactCountryFlag countryCode={(movie.original_language === "en" ? 'gb' : movie.original_language)} />
               </p>
               <p>voto : {Number((movie.vote_average) / 2).toFixed()}</p>
+              <p>movie</p>
+            </li>
+
+          ))}
+        </ul>
+
+        <ul>
+          {series.map(serie => (
+            <li key={serie.id}>
+              <h1>{serie.name}</h1>
+              <p>Titolo Originale : {serie.original_name}</p>
+              <p>lingua originale: <ReactCountryFlag countryCode={(serie.original_language === "en" ? 'gb' : serie.original_language)} />
+              </p>
+              <p>voto : {Number((serie.vote_average) / 2).toFixed()}</p>
+              <p>Serie TV</p>
             </li>
 
           ))}
