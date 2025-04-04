@@ -29,7 +29,7 @@ Qui un esempio di chiamata per le serie tv:
 https://api.themoviedb.org/3/search/tv?api_key=e99307154c6dfb0b4750f6603256716d&language=it_IT&query=s
 crubs
 
-*Milestone 3:*
+*Milestone 3:* [DONE]
 In questa milestone come prima cosa aggiungiamo la copertina del film o della serie
 al nostro elenco. Ci viene passata dall’API solo la parte finale dell’URL, questo
 perché poi potremo generare da quella porzione di URL tante dimensioni diverse.
