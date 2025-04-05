@@ -13,6 +13,9 @@ export default function MoviesList() {
       <Header />
 
 
+
+
+
       {/* movie */}
 
       <main className="searched_movie">
@@ -26,21 +29,30 @@ export default function MoviesList() {
             {movies.map(movie => (
               <div key={movie.id} className="col mb-4">
                 <div className="card h-100 " >
-                  <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} className=" img-fluid h-100 bordered rounded " alt={movie.title} />
+                  <img src={movie.poster_path?.length ? `https://image.tmdb.org/t/p/w342/${movie.poster_path}` : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'} className=" img-fluid h-100 bordered rounded " alt={movie.title} />
 
                   <div className="details overlay px-3 py-1">
 
-                    <h5 className="mt-2">{movie.title}</h5>
+                    <p className="mt-2 mb-0">Titolo:</p>
+                    <h5 >{movie.title}</h5>
+
+                    <p className="mt-4 mb-0">Titolo Originale:</p>
                     <h6>{movie.original_title}</h6>
 
-                    <ReactCountryFlag countryCode={(movie.original_language === "en" ? 'gb' : movie.original_language)} />
+                    <ul className="list-unstyled d-flex gap-2  mt-3">
+                      <li><span className="mt-4">Lingua Originale</span></li>
+                      <li>
+                        <ReactCountryFlag countryCode={(movie.original_language === "en" ? 'gb' : movie.original_language)} />
+                      </li>
+                    </ul>
 
-                    <p className="mt-2">{movie.overview}</p>
-                    <p> voto :
+                    <p className="mt-4 fw-bold mb-0" >Descrizione</p>
+                    <p>{movie.overview}</p>
+                    <p>
+                      <b>Voto:</b>
                       {"★".repeat(Number((movie.vote_average) / 2).toFixed()) +
                         "☆".repeat(5 - Number((movie.vote_average) / 2).toFixed())}
                     </p>
-
 
                   </div>
                 </div>
@@ -55,21 +67,30 @@ export default function MoviesList() {
             {series.map(serie => (
               <div key={serie.id} className="col mb-4">
                 <div className="card h-100 " >
-                  <img src={`https://image.tmdb.org/t/p/w342/${serie.poster_path}`} className=" img-fluid h-100 bordered rounded " alt={serie.name} />
+                  <img src={`https://image.tmdb.org/t/p/w342/${serie.poster_path}`} className=" img-fluid h-100 bordered rounded " alt={serie.title} />
 
                   <div className="details overlay px-3 py-1">
 
-                    <h5 className="mt-2">{serie.name}</h5>
+                    <p className="mt-2 mb-0">Titolo:</p>
+                    <h5 >{serie.name}</h5>
+
+                    <p className="mt-4 mb-0">Titolo Originale:</p>
                     <h6>{serie.original_name}</h6>
 
-                    <ReactCountryFlag countryCode={(serie.original_language === "en" ? 'gb' : serie.original_language)} />
+                    <ul className="list-unstyled d-flex gap-2  mt-3">
+                      <li><span className="mt-4">Lingua Originale</span></li>
+                      <li>
+                        <ReactCountryFlag countryCode={(serie.original_language === "en" ? 'gb' : serie.original_language)} />
+                      </li>
+                    </ul>
 
-                    <p className="mt-2">{serie.overview}</p>
-                    <p> voto :
+                    <p className="mt-4 fw-bold mb-0" >Descrizione</p>
+                    <p>{serie.overview}</p>
+                    <p>
+                      <b>Voto:</b>
                       {"★".repeat(Number((serie.vote_average) / 2).toFixed()) +
                         "☆".repeat(5 - Number((serie.vote_average) / 2).toFixed())}
                     </p>
-
 
                   </div>
                 </div>
