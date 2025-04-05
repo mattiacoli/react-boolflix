@@ -65,9 +65,9 @@ export default function MoviesList() {
 
           <div className="row row-cols-lg-4 row-cols-md-3 row-cols-1">
             {series.map(serie => (
-              <div key={serie.id} className="col mb-4">
+              <div key={serie.id} className="col mb-4 h-100">
                 <div className="card h-100 " >
-                  <img src={`https://image.tmdb.org/t/p/w342/${serie.poster_path}`} className=" img-fluid h-100 bordered rounded " alt={serie.title} />
+                  <img src={serie.poster_path?.length ? `https://image.tmdb.org/t/p/w342/${serie.poster_path}` : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'} className=" img-fluid h-100 bordered rounded " alt={serie.title} />
 
                   <div className="details overlay px-3 py-1">
 
