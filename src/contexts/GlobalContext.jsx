@@ -12,9 +12,9 @@ function GlobalProvider({ children }) {
 
   const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
 
-  const base_movies_api_url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=it_IT&query=${searchQuery}`;
+  const base_movies_api_url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=it-IT&query=${searchQuery}`;
 
-  const base_series_api_url = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&language=it_IT&query=${searchQuery}`
+  const base_series_api_url = `https://api.themoviedb.org/3/search/tv?api_key=${api_key}&language=it-IT&query=${searchQuery}`
 
 
 

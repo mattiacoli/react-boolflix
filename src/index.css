@@ -14,7 +14,14 @@ body {
 
   min-height: 100vh;
 
+  color: white;
+
 }
+
+
+
+
+
 
 header {
 
@@ -47,4 +54,62 @@ header {
 
 main {
   padding-top: 4rem;
+
+  h2 {
+    font-weight: 700;
+  }
+
+  .card {
+    border: none;
+    display: block;
+
+    img {
+
+      object-fit: cover;
+    }
+
+    &:hover {
+      scale: 1.05;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .overlay {
+      padding-top: 0.5rem;
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      overflow-y: scroll;
+      width: 100%;
+      opacity: 0;
+      transition: 0.5s ease-in-out;
+      border-radius: 8px;
+      background-color: black;
+      color: white;
+      font-size: 12px;
+
+      &::-webkit-scrollbar {
+        width: 5px;
+
+      }
+
+
+      &::-webkit-scrollbar-track {
+        background: transparent;
+
+      }
+
+
+      &::-webkit-scrollbar-thumb {
+        background: #888;
+        height: 10px;
+      }
+
+    }
+
+    &:hover .overlay {
+      opacity: 1;
+    }
+  }
 }

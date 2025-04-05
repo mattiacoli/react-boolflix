@@ -32,7 +32,7 @@ export default function Header() {
           type="button"
           className="btn btn-outline-light"
           onClick={handleSubmit}>
-          Search
+          <i className="fa fa-search" aria-hidden="true"></i>
         </button>
       </div>
 
