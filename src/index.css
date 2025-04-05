@@ -6,3 +6,45 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+body {
+  font-family: 'M PLUS 2 Variable', sans-serif;
+  background: rgb(43, 24, 25);
+  background: linear-gradient(147deg, rgba(43, 24, 25, 1) 0%, rgba(68, 35, 40, 1) 68%, rgba(61, 51, 52, 1) 100%);
+
+  min-height: 100vh;
+
+}
+
+header {
+
+  background: rgba(2, 0, 36, 0.568);
+  background: linear-gradient(147deg, rgba(2, 0, 36, 1) 0%, rgba(1, 1, 1, 1) 35%, rgba(47, 48, 48, 1) 100%);
+
+  box-shadow: 0 0 5px grey;
+  position: fixed;
+  width: 100%;
+  z-index: 3;
+  top: 0;
+
+
+
+  .logo {
+    font-family: 'Phudu Variable', system-ui;
+  }
+
+  #searchbar {
+    background-color: transparent;
+    width: 300px;
+
+    &::placeholder {
+      color: rgb(180, 180, 180);
+      font-size: 14px;
+    }
+  }
+}
+
+
+main {
+  padding-top: 4rem;
+}

@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@fontsource-variable/m-plus-2": "^5.2.5",
+    "@fontsource-variable/phudu": "^5.2.6",
     "bootstrap": "^5.3.4",
     "flag-icons": "^7.3.2",
     "react": "^19.0.0",

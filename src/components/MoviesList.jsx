@@ -15,50 +15,54 @@ export default function MoviesList() {
 
       {/* movie */}
 
-      <div className="container my-4">
-        <ul>
-          {movies.map(movie => (
-            <li key={movie.id}>
-              <h1>{movie.title}</h1>
-              <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} alt="" />
-              <p>Titolo Originale : {movie.original_title}</p>
-              <p>lingua originale: <ReactCountryFlag countryCode={(movie.original_language === "en" ? 'gb' : movie.original_language)} />
-              </p>
+      <main className="searched_movie">
 
-              <p>
-                voto :
-                {"★".repeat(Number((movie.vote_average) / 2).toFixed()) +
-                  "☆".repeat(5 - Number((movie.vote_average) / 2).toFixed())}
-              </p>
+        <div className="container my-4">
 
-              <p>movie</p>
-            </li>
+          <div className="row row-cols-lg-6 row-cols-md-3 row-cols-1">
 
-          ))}
-        </ul>
+            {movies.map(movie => (
+              <div key={movie.id} className="col mb-3">
+                <div className="card h-100">
+                  <img src={`https://image.tmdb.org/t/p/w342/${movie.poster_path}`} className="card-img-top" alt={movie.title} style={{ maxHeight: "300px" }} />
+                  <div className="card-body">
+                    <h5 className="card-title">{movie.title}</h5>
+                    <p>
+                      voto :
+                      {"★".repeat(Number((movie.vote_average) / 2).toFixed()) +
+                        "☆".repeat(5 - Number((movie.vote_average) / 2).toFixed())}
+                    </p>
+                    <p>movie</p>
+                  </div>
+                </div>
+              </div>
+            ))}
 
-        {/* serie Tv */}
-        <ul>
-          {series.map(serie => (
-            <li key={serie.id}>
-              <h1>{serie.name}</h1>
-              <img src={` https://image.tmdb.org/t/p/w342/${serie.poster_path}`} alt="" />
-              <p>Titolo Originale : {serie.original_name}</p>
-              <p>lingua originale: <ReactCountryFlag countryCode={(serie.original_language === "en" ? 'gb' : serie.original_language)} />
-              </p>
-              <p>
-                voto :
-                {"★".repeat(Number((serie.vote_average) / 2).toFixed()) +
-                  "☆".repeat(5 - Number((serie.vote_average) / 2).toFixed())}
-              </p>
-              <p>Serie TV</p>
+            {series.map(serie => (
+              <div key={serie.id} className="col">
+                <div className="card">
+                  <img src={`https://image.tmdb.org/t/p/w342/${serie.poster_path}`} className="card-img-top" alt={serie.name} />
+                  <div className="card-body">
+                    <h5 className="card-title">{serie.name}</h5>
+                    <p>
+                      voto :
+                      {"★".repeat(Number((serie.vote_average) / 2).toFixed()) +
+                        "☆".repeat(5 - Number((serie.vote_average) / 2).toFixed())}
+                    </p>
+                    <p>serie</p>
+                  </div>
+                </div>
+              </div>
+            ))}
 
-            </li>
 
-          ))}
-        </ul>
 
-      </div>
+          </div>
+
+
+        </div>
+
+      </main>
 
 
 

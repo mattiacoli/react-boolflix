@@ -9,7 +9,7 @@ export default function Header() {
 
   return (
 
-    <header className="d-flex justify-content-between align-items-center bg-dark text-white p-2">
+    <header className="d-flex justify-content-between align-items-center px-3  p-2">
 
       <div className="logo text-danger fw-bolder fs-1">
         BOOLFLIX
@@ -20,11 +20,11 @@ export default function Header() {
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           type="text"
-          className="form-control h-100"
+          className="form-control text-white "
           name="searchbar"
           id="searchbar"
           aria-describedby="helpId"
-          placeholder="Search movies or series..."
+          placeholder="Search for movies or series..."
         />
 
 
