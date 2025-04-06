@@ -1,10 +1,10 @@
-import { useGlobalContext } from "../contexts/GlobalContext"
+import { useSearchContext } from "../contexts/SearchContext"
 import ReactCountryFlag from "react-country-flag"
 import Header from "./Header"
 
-export default function MoviesList() {
+export default function SearchList() {
 
-  const { movies, series } = useGlobalContext()
+  const { movies, series } = useSearchContext()
 
   return (
     <>
@@ -31,7 +31,7 @@ export default function MoviesList() {
                 {movies.map(movie => (
                   <div key={movie.id} className="col mb-4">
                     <div className="card h-100 " >
-                      <img src={movie.poster_path?.length ? `https://image.tmdb.org/t/p/w342/${movie.poster_path}` : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'} className=" img-fluid h-100 bordered rounded " alt={movie.title} />
+                      <img src={movie.poster_path?.length ? `https://image.tmdb.org/t/p/w342/${movie.poster_path}` : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'} className=" img-fluid h-100 w-100 bordered rounded " alt={movie.title} />
 
                       <div className="details overlay px-3 py-1">
 
@@ -48,13 +48,13 @@ export default function MoviesList() {
                           </li>
                         </ul>
 
-                        <p className="mt-4 fw-bold mb-0" >Descrizione</p>
-                        <p>{movie.overview}</p>
                         <p>
                           <b>Voto:</b>
                           {"★".repeat(Number((movie.vote_average) / 2).toFixed()) +
                             "☆".repeat(5 - Number((movie.vote_average) / 2).toFixed())}
                         </p>
+                        <p className="mt-4 fw-bold mb-0" >Descrizione</p>
+                        <p>{movie.overview}</p>
 
                       </div>
                     </div>
@@ -69,12 +69,12 @@ export default function MoviesList() {
           {series.length !== 0 ? (
 
             <>
-              <h2 className="mt-5 mb-3">TV SERIES</h2>
+              <h2 className="mt-5 mb-3">TV SHOWS</h2>
 
 
               <div className="row row-cols-lg-4 row-cols-md-3 row-cols-1">
                 {series.map(serie => (
-                  <div key={serie.id} className="col mb-4 h-100">
+                  <div key={serie.id} className="col mb-4">
                     <div className="card h-100 " >
                       <img src={serie.poster_path?.length ? `https://image.tmdb.org/t/p/w342/${serie.poster_path}` : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'} className=" img-fluid h-100 bordered rounded " alt={serie.title} />
 
@@ -93,13 +93,14 @@ export default function MoviesList() {
                           </li>
                         </ul>
 
-                        <p className="mt-4 fw-bold mb-0" >Descrizione</p>
-                        <p>{serie.overview}</p>
-                        <p>
+                        <p className="voto">
                           <b>Voto:</b>
                           {"★".repeat(Number((serie.vote_average) / 2).toFixed()) +
                             "☆".repeat(5 - Number((serie.vote_average) / 2).toFixed())}
                         </p>
+
+                        <p className="mt-4 fw-bold mb-0" >Descrizione</p>
+                        <p>{serie.overview}</p>
 
                       </div>
                     </div>

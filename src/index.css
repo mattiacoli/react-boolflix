@@ -55,6 +55,8 @@ header {
 main {
   padding-top: 4rem;
 
+
+
   h2 {
     font-weight: 700;
   }
@@ -69,7 +71,7 @@ main {
     }
 
     &:hover {
-      scale: 1.05;
+      scale: 1.07;
       transition: all 0.3s ease-in-out;
       cursor: pointer;
     }
@@ -79,29 +81,33 @@ main {
       top: 0;
       left: 0;
       height: 100%;
-      overflow-y: scroll;
       width: 100%;
       opacity: 0;
+      overflow-y: scroll;
       transition: 0.5s ease-in-out;
       border-radius: 8px;
       background-color: black;
       color: white;
       font-size: 12px;
 
+
       &::-webkit-scrollbar {
         width: 5px;
+
 
       }
 
 
       &::-webkit-scrollbar-track {
         background: transparent;
+        margin-right: 10px;
 
       }
 
 
       &::-webkit-scrollbar-thumb {
-        background: #888;
+        background: rgba(214, 4, 4, 0.877);
+        border-radius: 50rem;
         height: 10px;
       }
 

@@ -1,17 +1,17 @@
-import { GlobalProvider } from "./contexts/GlobalContext"
-import MoviesList from "./components/MoviesList"
+import { SearchProvider } from "./contexts/SearchContext"
+import SearchList from "./components/SearchList"
 
 function App() {
 
   return (
     <>
-      <GlobalProvider>
+      <SearchProvider>
 
-        <MoviesList />
+        <SearchList />
 
 
 
-      </GlobalProvider>
+      </SearchProvider>
 
 
 

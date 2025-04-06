@@ -1,8 +1,8 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
-const GlobalContext = createContext()
+const SearchContext = createContext()
 
-function GlobalProvider({ children }) {
+function SearchProvider({ children }) {
 
   const [searchQuery, setSearchQuery] = useState('')
 
@@ -53,27 +53,27 @@ function GlobalProvider({ children }) {
   }
 
   return (
-    <GlobalContext.Provider
+    <SearchContext.Provider
       value={{ searchQuery, setSearchQuery, movies, setMovies, series, setSeries, handleSubmit }}>
 
       {children}
 
 
-    </GlobalContext.Provider>
+    </SearchContext.Provider>
 
   )
 
 }
 
 
-function useGlobalContext() {
-  const context = useContext(GlobalContext)
+function useSearchContext() {
+  const context = useContext(SearchContext)
 
   return context
 }
 
 
-export { GlobalProvider, useGlobalContext }
+export { SearchProvider, useSearchContext }
 
 
 

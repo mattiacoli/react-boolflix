@@ -1,11 +1,11 @@
-import { useGlobalContext } from "../contexts/GlobalContext"
+import { useSearchContext } from "../contexts/SearchContext"
 
 
 
 
 export default function Header() {
 
-  const { handleSubmit, searchQuery, setSearchQuery } = useGlobalContext()
+  const { handleSubmit, searchQuery, setSearchQuery } = useSearchContext()
 
   return (
 
