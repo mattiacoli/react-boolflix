@@ -80,7 +80,7 @@ export default function Home() {
           </div>
 
 
-          <h2 className="mb-4 mt-5"> Popular Series</h2>
+          <h2 className="mb-4 mt-5"> Popular Tv Shows</h2>
 
           <div className="row row-cols-lg-4 row-cols-md-3 row-cols-1">
 
