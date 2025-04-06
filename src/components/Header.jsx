@@ -1,18 +1,17 @@
 import { useSearchContext } from "../contexts/SearchContext"
 
-
-
-
 export default function Header() {
 
   const { handleSubmit, searchQuery, setSearchQuery } = useSearchContext()
+
+
 
   return (
 
     <header className="d-flex justify-content-between align-items-center px-3  p-2">
 
       <div className="logo text-danger fw-bolder fs-1">
-        BOOLFLIX
+        <a className="text-decoration-none text-danger" href="/">BOOTFLIX</a>
       </div>
 
       <div className="form-group d-flex align-item-center gap-2">
