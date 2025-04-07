@@ -89,6 +89,7 @@ main {
       background-color: black;
       color: white;
       font-size: 12px;
+      box-shadow: 0 0 8px white;
 
 
       &::-webkit-scrollbar {
@@ -109,12 +110,14 @@ main {
         background: rgba(214, 4, 4, 0.877);
         border-radius: 50rem;
         height: 10px;
+
       }
 
     }
 
     &:hover .overlay {
       opacity: 1;
+
     }
   }
 }

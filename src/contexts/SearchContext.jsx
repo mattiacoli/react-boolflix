@@ -52,6 +52,9 @@ function SearchProvider({ children }) {
 
   }
 
+
+
+
   return (
     <SearchContext.Provider
       value={{ searchQuery, setSearchQuery, movies, setMovies, series, setSeries, handleSubmit }}>
