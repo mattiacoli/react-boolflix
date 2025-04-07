@@ -76,6 +76,11 @@ function SearchProvider({ children }) {
 
   }
 
+  function filterMoviesByGenre() {
+    if (!selectGenre) return movies;
+    return movies.filter(movie => movie.genre_ids.includes(Number(selectGenre)));
+  }
+
 
 
 
@@ -88,7 +93,8 @@ function SearchProvider({ children }) {
         series, setSeries,
         genres, setGenres,
         selectGenre, setSelectGenre,
-        handleSubmit, handleSelectGenres
+        handleSubmit, handleSelectGenres,
+        filterMoviesByGenre
       }}>
 
       {children}

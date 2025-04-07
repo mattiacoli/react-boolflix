@@ -21,7 +21,7 @@ export default function Header() {
       <div className="form-group">
         <label htmlFor="Genre">Genre</label>
         <select className="custom-select" name="genre" id="genre" onChange={handleSelectGenres}>
-          <option >Select one</option>
+          <option value='' >Select one</option>
 
           {
             genres.map(genre => (

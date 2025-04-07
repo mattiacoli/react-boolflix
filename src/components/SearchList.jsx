@@ -1,20 +1,17 @@
+import { useState, useEffect } from "react"
 import { useSearchContext } from "../contexts/SearchContext"
 import ReactCountryFlag from "react-country-flag"
-import Header from "./Header"
 
 export default function SearchList() {
 
-  const { movies, series } = useSearchContext()
+  const { movies, series, filterMoviesByGenre } = useSearchContext()
+
+  const filteredMovies = filterMoviesByGenre();
+
+
 
   return (
     <>
-
-
-      <Header />
-
-
-
-
 
       {/* movie */}
 
@@ -28,7 +25,7 @@ export default function SearchList() {
 
               <div className="row row-cols-lg-4 row-cols-md-3 row-cols-1">
 
-                {movies.map(movie => (
+                {filteredMovies.map(movie => (
                   <div key={movie.id} className="col mb-4">
                     <div className="card h-100 " >
                       <img src={movie.poster_path?.length ? `https://image.tmdb.org/t/p/w342/${movie.poster_path}` : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'} className=" img-fluid h-100 w-100 bordered rounded " alt={movie.title} />
