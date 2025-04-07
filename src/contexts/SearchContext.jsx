@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useState, useEffect } from "react";
 
 const SearchContext = createContext()
 
@@ -52,12 +52,44 @@ function SearchProvider({ children }) {
 
   }
 
+  const [genres, setGenres] = useState([])
+  const [selectGenre, setSelectGenre] = useState('')
+
+
+
+
+  useEffect(() => {
+
+    fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}`)
+      .then(res => res.json())
+      .then(data => {
+        setGenres(data.genres)
+        console.log(data.genres);
+
+      })
+  }, [])
+
+
+  function handleSelectGenres(e) {
+
+    setSelectGenre(e.target.value)
+
+  }
+
+
 
 
 
   return (
     <SearchContext.Provider
-      value={{ searchQuery, setSearchQuery, movies, setMovies, series, setSeries, handleSubmit }}>
+      value={{
+        searchQuery, setSearchQuery,
+        movies, setMovies,
+        series, setSeries,
+        genres, setGenres,
+        selectGenre, setSelectGenre,
+        handleSubmit, handleSelectGenres
+      }}>
 
       {children}
 

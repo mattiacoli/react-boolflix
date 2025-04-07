@@ -1,35 +1,12 @@
-import { useEffect, useState } from "react"
+
 import { useSearchContext } from "../contexts/SearchContext"
 
 export default function Header() {
 
-  const { handleSubmit, searchQuery, setSearchQuery } = useSearchContext()
-
-  const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
-
-  const [genres, setGenres] = useState([])
-  const [selectGenre, setSelectGenre] = useState('')
+  const { handleSubmit, searchQuery, setSearchQuery, genres, handleSelectGenres } = useSearchContext()
 
 
 
-
-  useEffect(() => {
-
-    fetch(`https://api.themoviedb.org/3/genre/movie/list?api_key=${api_key}`)
-      .then(res => res.json())
-      .then(data => {
-        setGenres(data.genres)
-        console.log(data.genres);
-
-      })
-  }, [])
-
-
-  function handleSelectGenres(e) {
-
-    setSelectGenre(e.target.value)
-
-  }
 
 
   return (
