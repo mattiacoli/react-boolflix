@@ -5,10 +5,6 @@ export default function Header() {
 
   const { handleSubmit, searchQuery, setSearchQuery, genres, handleSelectGenres } = useSearchContext()
 
-
-
-
-
   return (
 
     <header className="d-flex justify-content-between align-items-center px-3  p-2">
@@ -48,7 +44,7 @@ export default function Header() {
 
         <div className="form-group d-flex align-items-center">
           <select
-            className="form-select"
+            className="form-select custom-select"
             name="genre"
             id="genre"
             onChange={handleSelectGenres}

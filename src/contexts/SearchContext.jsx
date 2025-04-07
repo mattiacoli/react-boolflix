@@ -1,3 +1,4 @@
+
 import { createContext, useContext, useState, useEffect } from "react";
 
 const SearchContext = createContext()
@@ -53,21 +54,21 @@ function SearchProvider({ children }) {
       })
 
 
-    function getActors(movieID) {
-      fetch(`https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${api_key}`)
-        .then(res => res.json())
-        .then(data => {
-          const actorNames = data.cast.splice(0, 5).map(actor => actor.name);
-          setActors(actorNames);
-          console.log(actorNames);
-        })
-        .catch(err => {
-          console.error(err.message);
-        });
-    }
-
-
   }
+
+  function getActors(movieID) {
+    fetch(`https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${api_key}`)
+      .then(res => res.json())
+      .then(data => {
+        const actorNames = data.cast.splice(0, 5).map(actor => actor.name);
+        setActors(actorNames);
+        console.log(actorNames);
+      })
+      .catch(err => {
+        console.error(err.message);
+      });
+  }
+
 
 
   useEffect(() => {

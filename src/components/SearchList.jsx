@@ -1,4 +1,28 @@
-import { useState, useEffect } from "react"
+/**
+ * SearchList Component
+ *
+ * This component renders a list of movies and TV shows based on the data provided by the `useSearchContext` hook.
+ * It displays filtered movies and series with their details such as title, original title, language, actors, rating, and description.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} The rendered SearchList component.
+ *
+ * @dependencies
+ * - `useSearchContext`: Custom hook to access the search context, providing movies, series, and utility functions.
+ * - `ReactCountryFlag`: Component to display country flags based on the language code.
+ *
+ * @example
+ * <SearchList />
+ *
+ * @remarks
+ * - Movies and series are displayed in separate sections.
+ * - If no movies or series are available, the respective sections are not rendered.
+ * - The `filterMoviesByGenre` function is used to filter movies by genre.
+ * - The `getActors` function is imported but not used in this component.
+ */
+
+
 import { useSearchContext } from "../contexts/SearchContext"
 import ReactCountryFlag from "react-country-flag"
 
@@ -7,9 +31,6 @@ export default function SearchList() {
   const { movies, series, filterMoviesByGenre, getActors } = useSearchContext()
 
   const filteredMovies = filterMoviesByGenre();
-
-
-
 
 
   return (
@@ -25,12 +46,15 @@ export default function SearchList() {
             <>
               <h2 className="mb-4 mt-5">MOVIES</h2>
 
-              <div className="row row-cols-lg-4 row-cols-md-3 row-cols-1">
+              <div className="row row-cols-lg-4 row-cols-md-3 row-cols-2">
 
                 {filteredMovies.map(movie => (
                   <div key={movie.id} className="col mb-4">
                     <div className="card h-100 " >
                       <img src={movie.poster_path?.length ? `https://image.tmdb.org/t/p/w342/${movie.poster_path}` : 'https://www.svgrepo.com/show/508699/landscape-placeholder.svg'} className=" img-fluid h-100 w-100 bordered rounded " alt={movie.title} />
+
+
+                      {/* overlay */}
 
                       <div className="details overlay px-3 py-1">
 
@@ -45,17 +69,6 @@ export default function SearchList() {
                           <li>
                             <ReactCountryFlag countryCode={(movie.original_language === "en" ? 'gb' : movie.original_language)} />
                           </li>
-                        </ul>
-
-                        <ul className="list-unstyled">
-                          <li><h5>Attori</h5></li>
-                          {
-                            actors.map((actor, index) => (
-                              <li key={index}>{actor}</li>
-                            ))
-                          }
-
-
                         </ul>
 
                         <p>
@@ -75,6 +88,7 @@ export default function SearchList() {
           ) : ('')}
 
 
+          {/* serie */}
 
           {series.length !== 0 ? (
 
@@ -82,7 +96,7 @@ export default function SearchList() {
               <h2 className="mt-5 mb-3">TV SHOWS</h2>
 
 
-              <div className="row row-cols-lg-4 row-cols-md-3 row-cols-1">
+              <div className="row row-cols-lg-4 row-cols-md-3 row-cols-2">
                 {series.map(serie => (
                   <div key={serie.id} className="col mb-4">
                     <div className="card h-100 " >
@@ -117,32 +131,11 @@ export default function SearchList() {
                   </div>
                 ))}
               </div>
-
-
-
-
-
             </>
 
-
-
           ) : ('')}
-
-
-
-
-
-
-
-
-
-
         </div>
-
       </main>
-
-
-
     </>
   )
 }

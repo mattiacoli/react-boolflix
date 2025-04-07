@@ -11,7 +11,8 @@ export default function Home() {
 
   const [popularSeries, setPopularSeries] = useState([])
 
-  const { movies = [] } = useSearchContext() // Provide a default empty array for movies
+  const { movies = [] } = useSearchContext()
+
 
   useEffect(() => {
     fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${api_key}&language=it_IT&page=1';`)
@@ -78,7 +79,7 @@ export default function Home() {
 
           <h2 className="mb-4 mt-5"> Popular Tv Shows</h2>
 
-          <div className="row row-cols-lg-4 row-cols-md-3 row-cols-1">
+          <div className="row row-cols-lg-4 row-cols-md-3 row-cols-2">
 
             {popularSeries.splice(0, 8).map(serie => (
               <div key={serie.id} className="col mb-4">
@@ -113,27 +114,8 @@ export default function Home() {
               </div>
             ))}
           </div>
-
-
-
-
-
-
         </div>
-
-
-
-
       </main>
-
-
-
-
     </>
   )
-
-
-
-
-
 }
