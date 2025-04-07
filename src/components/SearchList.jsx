@@ -4,9 +4,11 @@ import ReactCountryFlag from "react-country-flag"
 
 export default function SearchList() {
 
-  const { movies, series, filterMoviesByGenre } = useSearchContext()
+  const { movies, series, filterMoviesByGenre, getActors } = useSearchContext()
 
   const filteredMovies = filterMoviesByGenre();
+
+
 
 
 
@@ -43,6 +45,17 @@ export default function SearchList() {
                           <li>
                             <ReactCountryFlag countryCode={(movie.original_language === "en" ? 'gb' : movie.original_language)} />
                           </li>
+                        </ul>
+
+                        <ul className="list-unstyled">
+                          <li><h5>Attori</h5></li>
+                          {
+                            actors.map((actor, index) => (
+                              <li key={index}>{actor}</li>
+                            ))
+                          }
+
+
                         </ul>
 
                         <p>

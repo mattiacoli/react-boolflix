@@ -18,8 +18,6 @@ export default function Home() {
       .then(res => res.json())
       .then(data => {
         setPopularMovies(data.results)
-        console.log(data.results);
-
       })
 
 
@@ -27,8 +25,6 @@ export default function Home() {
       .then(res => res.json())
       .then(data => {
         setPopularSeries(data.results)
-        console.log(data.results);
-
       })
 
 

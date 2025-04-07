@@ -10,6 +10,12 @@ function SearchProvider({ children }) {
 
   const [series, setSeries] = useState([])
 
+  const [genres, setGenres] = useState([])
+
+  const [selectGenre, setSelectGenre] = useState('')
+
+  const [actors, setActors] = useState([])
+
   const api_key = import.meta.env.VITE_MOVIE_DB_API_KEY;
 
   const base_movies_api_url = `https://api.themoviedb.org/3/search/movie?api_key=${api_key}&language=it-IT&query=${searchQuery}`;
@@ -25,7 +31,6 @@ function SearchProvider({ children }) {
     fetch(base_movies_api_url)
       .then(res => res.json())
       .then(data => {
-
         setMovies(data.results)
         console.log(data.results);
       })
@@ -48,14 +53,21 @@ function SearchProvider({ children }) {
       })
 
 
+    function getActors(movieID) {
+      fetch(`https://api.themoviedb.org/3/movie/${movieID}/credits?api_key=${api_key}`)
+        .then(res => res.json())
+        .then(data => {
+          const actorNames = data.cast.splice(0, 5).map(actor => actor.name);
+          setActors(actorNames);
+          console.log(actorNames);
+        })
+        .catch(err => {
+          console.error(err.message);
+        });
+    }
 
 
   }
-
-  const [genres, setGenres] = useState([])
-  const [selectGenre, setSelectGenre] = useState('')
-
-
 
 
   useEffect(() => {
@@ -64,7 +76,6 @@ function SearchProvider({ children }) {
       .then(res => res.json())
       .then(data => {
         setGenres(data.genres)
-        console.log(data.genres);
 
       })
   }, [])
@@ -82,9 +93,6 @@ function SearchProvider({ children }) {
   }
 
 
-
-
-
   return (
     <SearchContext.Provider
       value={{
@@ -94,7 +102,7 @@ function SearchProvider({ children }) {
         genres, setGenres,
         selectGenre, setSelectGenre,
         handleSubmit, handleSelectGenres,
-        filterMoviesByGenre
+        filterMoviesByGenre, getActors
       }}>
 
       {children}

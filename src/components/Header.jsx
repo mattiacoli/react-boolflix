@@ -18,40 +18,53 @@ export default function Header() {
       </div>
 
 
-      <div className="form-group">
-        <label htmlFor="Genre">Genre</label>
-        <select className="custom-select" name="genre" id="genre" onChange={handleSelectGenres}>
-          <option value='' >Select one</option>
 
-          {
-            genres.map(genre => (
-              <option key={genre.id} value={genre.id}>{genre.name}</option>
-            ))
-          }
-
-
-        </select>
-      </div>
 
       <div className="form-group d-flex align-item-center gap-2">
+
+
+
         <input
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           type="text"
-          className="form-control text-white "
+          className="form-control form-control-sm"
           name="searchbar"
           id="searchbar"
           aria-describedby="helpId"
           placeholder="Search for movies or series..."
+          data-bs-theme="dark"
         />
 
 
         <button
           type="button"
-          className="btn btn-outline-light"
-          onClick={handleSubmit}>
+          className="btn btn-outline-secondary"
+          onClick={handleSubmit}
+          data-bs-theme="dark">
           <i className="fa fa-search" aria-hidden="true"></i>
         </button>
+
+
+        <div className="form-group d-flex align-items-center">
+          <select
+            className="form-select"
+            name="genre"
+            id="genre"
+            onChange={handleSelectGenres}
+            data-bs-theme="dark">
+            <option value='/' >Select Genre</option>
+            <option value='' >All</option>
+
+            {
+              genres.map(genre => (
+                <option key={genre.id} value={genre.id}>{genre.name}</option>
+              ))
+            }
+
+
+          </select>
+        </div>
       </div>
 
 
